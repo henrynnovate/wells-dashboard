@@ -1,0 +1,153 @@
+.screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(120% 80% at 10% 10%, rgba(20, 184, 166, 0.18) 0%, transparent 45%),
+    radial-gradient(100% 80% at 85% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 45%),
+    linear-gradient(145deg, #f7fafc 0%, #e2e8f0 55%, #dbeafe 100%);
+}
+
+.gridPattern {
+  position: absolute;
+  inset: -15% -10%;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, #000 36%, transparent 78%);
+  animation: drift 14s linear infinite;
+  pointer-events: none;
+}
+
+.panel {
+  width: min(840px, calc(100vw - 2rem));
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  padding: clamp(1rem, 3vw, 2rem);
+  position: relative;
+  z-index: 1;
+  animation: panelIn 460ms ease-out;
+}
+
+.kicker {
+  margin: 0;
+  color: #0f766e;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0.5rem 0 0;
+  color: #0f172a;
+  font-size: clamp(1.45rem, 4vw, 2.3rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.copy {
+  margin: 0.8rem 0 0;
+  max-width: 65ch;
+  color: #334155;
+  font-size: clamp(0.92rem, 2.4vw, 1.02rem);
+  line-height: 1.55;
+}
+
+.row {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.77rem;
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.progressWrap {
+  margin-top: 1rem;
+}
+
+.progressLabel {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  color: #334155;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  animation: loadbar 3s linear forwards;
+  background: linear-gradient(90deg, #0f766e 0%, #2563eb 55%, #1d4ed8 100%);
+}
+
+@keyframes loadbar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(36px, 36px, 0);
+  }
+}
+
+@media (max-width: 560px) {
+  .panel {
+    border-radius: 16px;
+  }
+
+  .copy {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gridPattern,
+  .panel,
+  .progressBar {
+    animation: none;
+  }
+}

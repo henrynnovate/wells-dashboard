@@ -1,0 +1,170 @@
+/* General container styling */
+.container {
+  padding: 2rem;
+  background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+  color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main heading */
+.heading {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+/* Loader */
+.loader {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #475569;
+  margin-top: 3rem;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive layout */
+  gap: 15px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+/* Well Card */
+.wellCard {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wellCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Well Header */
+.wellHeader {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+/* Metrics container */
+.metrics {
+  width: 100%;
+}
+
+/* Each metric row */
+.metricRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+/* Labels for GOR%, Water%, Pressure% */
+.metricLabel {
+  width: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #334155;
+  text-align: right;
+  margin-right: 8px;
+}
+
+/* Metric bars */
+.metricBar {
+  height: 8px;
+  width: 100%;
+  border-radius: 5px;
+  background: #d1d5db; /* Default color */
+  transition: width 0.3s ease;
+}
+
+/* Floating Action Button */
+.floatingButtonLeft {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.85rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Hover effect for floating button */
+.floatingButtonLeft:hover {
+  background-color: #2563eb;
+  transform: scale(1.1);
+}
+
+/* Floating Action Button */
+.floatingButton {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.85rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Hover effect for floating button */
+.floatingButton:hover {
+  background-color: #2563eb;
+  transform: scale(1.1);
+}
+
+/* Icon inside floating button */
+.icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
